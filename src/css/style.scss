@@ -1,0 +1,62 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+body::-webkit-scrollbar {
+  /* WebKit */
+  width: 0px;
+}
+
+#btnWrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  .head-button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    margin: 0 3px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition-duration: 1s;
+  }
+  .head-button:focus {
+    outline: none;
+  }
+}
+.area {
+  width: 100%;
+  height: 100%;
+}
+#areaForBtnOne {
+  background-color: red;
+}
+#areaForBtnTwo {
+  background-color: blue;
+}
+#areaForBtnThree {
+  background-color: yellow;
+}
+
+#downBtn{
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: pink;
+  transition-duration: 1s;
+}
+#downBtn:focus{
+  outline: none;
+}
