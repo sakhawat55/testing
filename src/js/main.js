@@ -1,7 +1,5 @@
-
 var headButton = document.getElementsByClassName("head-button");
 var areas = document.getElementsByClassName("area");
-var clicks = 0;
 
 // Getting the top scroll of the page
 function currentYPosition() {
@@ -70,35 +68,48 @@ var btnFill = function() {
 };
 
 // Removing the down button when the page is scrolled to the bottom
-var btnOut = function(){
-  var scrollBottom = document.documentElement.scrollHeight - document.documentElement.scrollTop - window.innerHeight;
-  if(scrollBottom == 0){
-    document.getElementById("downBtn").setAttribute("style","right:-100%;bottom:-100%")
-    clicks = 0;
+var btnOut = function() {
+  var scrollBottom =
+    document.documentElement.scrollHeight -
+    document.documentElement.scrollTop -
+    window.innerHeight;
+  if (scrollBottom == 0) {
+    document
+      .getElementById("downBtn")
+      .style.cssText="right:-100%;bottom:-100%";
+  } else {
+    document
+      .getElementById("downBtn")
+      .style.cssText="right:10px;bottom:10px";
   }
-  else{
-    document.getElementById("downBtn").setAttribute("style","right:10px;bottom:10px")
+};
+
+// Scrolling page by down button
+var scrollWithDownBtn = function() {
+  for(i=0; i<areas.length; i++){
+    areaT = areas[i].getBoundingClientRect().top;
+    if(areaT>0){
+      var btnId = areas[i].id.replace("areaFor", "");
+      if(btnId == "BtnTwo"){
+        headButton[1].click();
+        return;
+      }
+      else if(btnId == "BtnThree"){
+        headButton[2].click();
+        return;
+      }
+    }
   }
 }
 
-// Counting the click event of the down button
-function clicksCount(){
-  clicks += 1;
-  if(clicks == 1){
-    document.getElementById("BtnTwo").click();
-  }
-  else if(clicks == 2){
-    document.getElementById("BtnThree").click();
-  }
-}
+
 
 for (i = 0; i < headButton.length; i++) {
   headButton[i].addEventListener("click", smoothScroll);
 }
 
-window.addEventListener("load",btnFill)
+window.addEventListener("load", btnFill);
+window.addEventListener("scroll", btnFill);
 
-window.addEventListener("scroll",btnFill)
-window.addEventListener("scroll",btnOut)
-
-document.getElementById("downBtn").addEventListener("click",clicksCount);
+document.getElementById("downBtn").addEventListener("click", scrollWithDownBtn);
+window.addEventListener("scroll", btnOut);

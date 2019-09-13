@@ -18,9 +18,9 @@ body::-webkit-scrollbar {
 
 #btnWrapper {
   position: fixed;
-  left: 0;
+  left: 5px;
   right: 0;
-  top: 0;
+  top: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,6 +46,20 @@ body::-webkit-scrollbar {
 .area {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.area p {
+  color: #ffffff;
+  font-size: 100px;
 }
 
 #areaForBtnOne {
