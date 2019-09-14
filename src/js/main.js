@@ -67,6 +67,49 @@ var btnFill = function() {
   }
 };
 
+// Scrolling page by down button
+var scrollWithDownBtn = function() {
+  for(i=0; i<areas.length; i++){
+    var areaT = areas[i].getBoundingClientRect().top;
+    if(areaT>0){
+      var btnId = areas[i].id.replace("areaFor", "");
+      if(btnId == "BtnTwo"){
+        headButton[1].click();
+        return;
+      }
+      else if(btnId == "BtnThree"){
+        headButton[2].click();
+        return;
+      }
+    }
+  }
+}
+
+// Scrolling page by keyboard's keys
+var scrollWithKeyboardKey = function(event) {
+  var keyName = event.key;
+  
+  if (keyName == 'ArrowDown' || keyName == 'PageDown') {
+    document.getElementById("downBtn").click();
+  }
+  else if(keyName == 'ArrowUp' || keyName == 'PageUp'){
+    for(i = areas.length - 1; i >= 0; i--){
+      var areaB = areas[i].getBoundingClientRect().top;
+      if(areaB < 0){
+        var btnId = areas[i].id.replace("areaFor", "");
+        if(btnId == "BtnOne"){
+          headButton[0].click();
+          return;
+        }
+        else if(btnId == "BtnTwo"){
+          headButton[1].click();
+          return;
+        }
+      }
+    }
+  }
+}
+
 // Removing the down button when the page is scrolled to the bottom
 var btnOut = function() {
   var scrollBottom =
@@ -84,24 +127,6 @@ var btnOut = function() {
   }
 };
 
-// Scrolling page by down button
-var scrollWithDownBtn = function() {
-  for(i=0; i<areas.length; i++){
-    areaT = areas[i].getBoundingClientRect().top;
-    if(areaT>0){
-      var btnId = areas[i].id.replace("areaFor", "");
-      if(btnId == "BtnTwo"){
-        headButton[1].click();
-        return;
-      }
-      else if(btnId == "BtnThree"){
-        headButton[2].click();
-        return;
-      }
-    }
-  }
-}
-
 
 
 for (i = 0; i < headButton.length; i++) {
@@ -112,4 +137,6 @@ window.addEventListener("load", btnFill);
 window.addEventListener("scroll", btnFill);
 
 document.getElementById("downBtn").addEventListener("click", scrollWithDownBtn);
+document.addEventListener("keyup", scrollWithKeyboardKey);
+
 window.addEventListener("scroll", btnOut);
