@@ -9,35 +9,168 @@
   <link rel="icon" href="#" type="image/png" />
   <link rel="stylesheet" href="src/css/fontawesome-all.min.css" />
   <link rel="stylesheet" href="src/css/bootstrap-4.1.0.min.css" />
+  <link rel="stylesheet" href="src/css/animate-3.7.0.css" />
+  <link rel="stylesheet" href="src/css/slick.1.9.0.css" />
+  <link rel="stylesheet" href="src/css/slick-theme.1.9.0.css" />
   <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
-<body>
+<body id="home-page">
 
-  <div id="btnWrapper">
-    <button class="head-button" id="BtnOne"></button>
-    <button class="head-button" id="BtnTwo"></button>
-    <button class="head-button" id="BtnThree"></button>
-  </div>
+  <!-- NAV AREA -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img class="logo top" src="src/img/logo.png" alt="Wheel Craft">
+      </a>
+      <div class="nav-right">
+        <div class="top">
+          <a href="#">REQUEST A QUOTE</a>
+          <a href="#">FIND A DEALER <i class="fas fa-search"></i></a>
+          <p>833.639.4231</p>
+        </div>
+        <div class="links-wrapper">
+          <a href="#">Product</a>
+          <a href="#">Process</a>
+          <a href="#">Gallery</a>
+          <a href="#">Resources</a>
+          <a href="#">For Dealers</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div id="menu-btn">
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <!-- NAV AREA END -->
 
-  <div id="areaForBtnOne" class="area">
-    <p>1</p>
-  </div>
 
-  <div id="areaForBtnTwo" class="area">
-    <p>2</p>
+  <!-- SECTION BUTTON -->
+  <div id="sec-btn-wrapper">
+    <div>
+      <button class="section-btn" id="BtnOne"></button>
+    </div>
+    <div>
+      <button class="section-btn" id="BtnTwo"></button>
+    </div>
+    <div>
+      <button class="section-btn" id="BtnThree"></button>
+    </div>
   </div>
+  <!-- SECTION BUTTON END -->
+
+
+  <!-- FIRST AREA -->
+  <section id="areaForBtnOne" class="area">
+    <div class="container">
+      <div class="text-wrapper">
+        <h2 class="wow fadeInDown">WHERE INSPIRATION AND PERFORMANCE CONVERGE</h2>
+        <p class="wow fadeIn" data-wow-delay="1s">Elevate your wheels to a new level</p>
+        <a class="wow fadeInUp" data-wow-delay=".5s" href="#">REQUEST A QUOTE</a>
+      </div>
+    </div>
+  </section>
+  <!-- FIRST AREA END -->
+
+
+  <section id="areaForBtnTwo" class="area">
+    <div class="container">
+      <p class="wow fadeInUp">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio accusamus nam maiores perferendis inventore in
+        impedit. Corrupti in aperiam, et aliquam voluptatum rerum ducimus dignissimos, quos alias at illo dolores sit
+        quam perferendis optio repellat explicabo debitis laboriosam accusantium voluptatibus voluptate natus hic.
+        Cupiditate qui fugit odit laboriosam excepturi id, eos eius natus accusamus esse incidunt dolore magni porro
+        aliquam vel reprehenderit veniam odio eaque? Iure culpa placeat sed natus!
+      </p>
+      <hr class="wow fadeInUp" data-wow-delay="0.33s">
+      <div class="box-wrapper row">
+        <div class="col-lg-3">
+          <a class="wow fadeIn" data-wow-delay="0.66s" href="#">
+            <img src="src/img/wheel.png" alt="wheel">
+            <span class="img-text">
+              <h2>BlackICE</h2>
+              <h4>BLAZE YOUR TRIAL...</h4>
+              <P>
+                BlackICE <sup>TM</sup> is the choice for customers who want the highest quality, most reflective black
+                wheel finish on their car wheels.
+              </P>
+              <img src="src/img/arrow-right.gif" alt="arrow">
+            </span>
+          </a>
+        </div>
+        <div class="col-lg-3 item">
+          <a class="wow fadeIn" data-wow-delay="0.99s" href="#">
+            <img src="src/img/wheel.png" alt="wheel">
+            <span class="img-text">
+              <h2>BlackICE</h2>
+              <h4>BLAZE YOUR TRIAL...</h4>
+              <P>
+                BlackICE <sup>TM</sup> is the choice for customers who want the highest quality, most reflective black
+                wheel finish on their car wheels.
+              </P>
+              <img src="src/img/arrow-right.gif" alt="arrow">
+            </span>
+          </a>
+        </div>
+        <div class="col-lg-3 item">
+          <a class="wow fadeIn" data-wow-delay="1.32s" href="#">
+            <img src="src/img/wheel.png" alt="wheel">
+            <span class="img-text">
+              <h2>BlackICE</h2>
+              <h4>BLAZE YOUR TRIAL...</h4>
+              <P>
+                BlackICE <sup>TM</sup> is the choice for customers who want the highest quality, most reflective black
+                wheel finish on their car wheels.
+              </P>
+              <img src="src/img/arrow-right.gif" alt="arrow">
+            </span>
+          </a>
+        </div>
+        <div class="col-lg-3 item">
+          <a class="wow fadeIn" data-wow-delay="1.65s" href="#">
+            <img src="src/img/wheel.png" alt="wheel">
+            <span class="img-text">
+              <h2>BlackICE</h2>
+              <h4>BLAZE YOUR TRIAL...</h4>
+              <P>
+                BlackICE <sup>TM</sup> is the choice for customers who want the highest quality, most reflective black
+                wheel finish on their car wheels.
+              </P>
+              <img src="src/img/arrow-right.gif" alt="arrow">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div id="areaForBtnThree" class="area">
     <p>3</p>
   </div>
 
-  <button id="downBtn">Down</button>
+  <button id="downBtn"><i class="fas fa-angle-down"></i></button>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu">
+    <span id="cross"></span>
+    <a href="#">Product</a>
+    <a href="#">Process</a>
+    <a href="#">Gallery</a>
+    <a href="#">Resources</a>
+    <a href="#">For Dealers</a>
+    <a href="#">Contact</a>
+    <p>833.639.4231</p>
+    <a href="#">REQUEST A QUOTE</a>
+    <a href="#">FIND A DEALER <i class="fas fa-search"></i></a>
+  </div>
 
 
   <script src="src/js/jquery-3.3.1.min.js"></script>
   <script src="src/js/popper-1.14.0.min.js"></script>
   <script src="src/js/bootstrap-4.1.0.min.js"></script>
+  <script src="src/js/wow-1.1.2.js"></script>
+  <script src="src/js/slick.1.9.0.min.js"></script>
   <script src="src/js/main.js"></script>
 </body>
 
