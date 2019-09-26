@@ -163,6 +163,7 @@ var scrollWithKeyboardKey = function(event) {
   }
 };
 
+
 // Removing the down button when the page is scrolled to the bottom
 var btnOut = function() {
   if (window.innerWidth >= 768) {
@@ -171,11 +172,9 @@ var btnOut = function() {
       document.documentElement.scrollTop -
       window.innerHeight;
     if (scrollBottom == 0) {
-      downBtn.style.cssText =
-        "right:-100%;bottom:-100%";
+      downBtn.style.cssText = "right:-100%;bottom:-100%";
     } else {
-      downBtn.style.cssText =
-        "right:10px;bottom:10px";
+      downBtn.style.cssText = "right:10px;bottom:10px";
     }
   } else {
     downBtn.style.cssText = "display:none";
@@ -188,11 +187,11 @@ var smallDevices = function() {
   if (window.innerWidth < 768) {
     secBtnWrapper.style.cssText = "display:none";
     areas[1].style.cssText = "height:auto";
-    navbar.style.cssText = "background-color:#676792f1"
+    navbar.style.cssText = "background-color:#676792f1";
   } else {
     secBtnWrapper.style.cssText = "display:flex";
     areas[1].style.cssText = "height:100%";
-    navbar.style.cssText = "background-color:transparent"
+    navbar.style.cssText = "background-color:transparent";
   }
 };
 
@@ -209,6 +208,7 @@ window.addEventListener("resize", wheelSlider);
 window.addEventListener("resize", btnOut);
 window.addEventListener("resize", smallDevices);
 
+
 for (i = 0; i < secButtons.length; i++) {
   secButtons[i].addEventListener("click", smoothScroll);
 }
@@ -223,3 +223,31 @@ crossBtn.addEventListener("click", function() {
 
 downBtn.addEventListener("click", scrollWithDownBtn);
 document.addEventListener("keydown", scrollWithKeyboardKey);
+
+
+
+
+var testF = function(event) {
+  var delta;
+
+  if (event.wheelDelta) {
+    delta = event.wheelDelta;
+  } else {
+    delta = -1 * event.deltaY;
+  }
+
+  if (delta < 0) {
+    return "Down";
+  } else if (delta > 0) {
+    return "Up";
+  }
+};
+
+var testFF = function(){
+  var upDown = testF(event);
+  if(upDown == "Down"){
+    downBtn.click();
+  }
+}
+
+document.addEventListener("wheel",testFF);

@@ -74,7 +74,7 @@ p {
     box-shadow: 0 1px 8px 0 #676792f1;
     padding: 10px 0 8px;
     z-index: 1000;
-    @include max-small{
+    @include max-small {
       padding: 0;
     }
     .container {
@@ -266,7 +266,7 @@ p {
       padding-top: 65px;
       padding-bottom: 65px;
       height: 100%;
-      @include max-large{
+      @include max-large {
         padding-top: 40px;
         padding-bottom: 40px;
       }
@@ -275,7 +275,7 @@ p {
         font-size: 20px;
         text-align: center;
         margin: 0 auto;
-        @include min-medium{
+        @include min-medium {
           width: 90%;
         }
       }
@@ -325,10 +325,10 @@ p {
                 top: 10px;
                 right: 0;
               }
-              h4{
+              h4 {
                 margin: 10px 0;
               }
-              p{
+              p {
                 line-height: 22px;
                 margin-bottom: 10px;
                 font-size: 18px;
@@ -339,8 +339,8 @@ p {
               }
             }
           }
-          a:hover{
-            .img-text{
+          a:hover {
+            .img-text {
               visibility: visible;
               opacity: 1;
             }
@@ -352,7 +352,14 @@ p {
   // THIRD AREA
   #areaForBtnThree {
     background-color: yellow;
+    height: 1000px;
   }
+
+  #areaForBtnFour {
+    background-color: rgb(114, 114, 65);
+    height: 1000px;
+  }
+
   // AREA END
 
   // DOWN BUTTON
