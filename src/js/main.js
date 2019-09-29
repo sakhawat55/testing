@@ -1,12 +1,18 @@
 // SUPPORT WOW.JS
 new WOW().init();
 
+// SIMPLEBAR FOR THIRD AREA  
+new SimpleBar(document.getElementById('areaForBtnThree'));
+
+// GLOBAL VARIABLES 
 var navbar = document.getElementById("navbar");
 var menuBtn = document.getElementById("menu-btn");
 var crossBtn = document.getElementById("cross");
 var secBtnWrapper = document.getElementById("sec-btn-wrapper");
 var secButtons = document.getElementsByClassName("section-btn");
 var areas = document.getElementsByClassName("area");
+var carBGVideo = document.getElementById("car-bg-video");
+var cVideoVol = document.getElementById("c-video-vol");
 var downBtn = document.getElementById("downBtn");
 
 // Getting the top scroll of the page
@@ -134,6 +140,10 @@ var scrollWithDownBtn = function() {
         secButtons[2].click();
         return;
       }
+      else if (btnId == "BtnFour") {
+        secButtons[3].click();
+        return;
+      }
     }
   }
 };
@@ -181,17 +191,41 @@ var btnOut = function() {
   }
 };
 
+// CONTROLLING BACKGROUND VIDEO
+
+var controllingBGVideo = function(){
+  if(cVideoVol.classList.contains('fa-volume-off')){
+    cVideoVol.classList.remove('fa-volume-off');
+    cVideoVol.classList.add('fa-volume-up');
+  }
+  else{
+    cVideoVol.classList.remove('fa-volume-up');
+    cVideoVol.classList.add('fa-volume-off');
+  }
+
+  if(carBGVideo.muted){
+    carBGVideo.muted = false;
+  }
+  else{
+    carBGVideo.muted = true;
+  }
+}
+
 // Modifying styles for small devices
 
 var smallDevices = function() {
   if (window.innerWidth < 768) {
-    secBtnWrapper.style.cssText = "display:none";
-    areas[1].style.cssText = "height:auto";
-    navbar.style.cssText = "background-color:#676792f1";
+    secBtnWrapper.style.display = 'none';
+    areas[1].style.height = 'auto';
+    areas[2].style.height = 'auto';
+    navbar.style.backgroundColor = '#004990';
+    document.getElementsByTagName('html')[0].style.overflow = 'auto';
   } else {
-    secBtnWrapper.style.cssText = "display:flex";
-    areas[1].style.cssText = "height:100%";
-    navbar.style.cssText = "background-color:transparent";
+    secBtnWrapper.style.display = 'flex';
+    areas[1].style.height = '100%';
+    areas[2].style.height = '100%';
+    navbar.style.backgroundColor = 'transparent';
+    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
   }
 };
 
@@ -220,8 +254,9 @@ crossBtn.addEventListener("click", function() {
   document.getElementById("mobile-menu").style.cssText =
     "opacity:0;visibility:hidden";
 });
-
+cVideoVol.addEventListener('click', controllingBGVideo)
 downBtn.addEventListener("click", scrollWithDownBtn);
+
 document.addEventListener("keydown", scrollWithKeyboardKey);
 
 
@@ -251,3 +286,4 @@ var testFF = function(){
 }
 
 document.addEventListener("wheel",testFF);
+
