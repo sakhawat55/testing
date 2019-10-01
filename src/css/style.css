@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Squada+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap");
 html,
 body {
@@ -7,7 +7,7 @@ body {
 }
 
 body {
-  font-family: "Squada One", cursive;
+  font-family: 'Big Shoulders Text', cursive;
 }
 
 h1,
@@ -479,10 +479,6 @@ p {
   }
 }
 
-#home-page #areaForBtnThree .container p {
-  font-size: 18px;
-}
-
 #home-page #areaForBtnThree .container span {
   color: #2070c0;
   font-weight: bold;
@@ -545,6 +541,97 @@ p {
   cursor: pointer;
   color: #595a6c;
   font-size: 20px;
+}
+
+#home-page #areaForBtnFive {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#155ca3));
+  background-image: linear-gradient(#000000, #155ca3);
+}
+
+@media (min-width: 768px) {
+  #home-page #areaForBtnFive {
+    padding-top: 80px;
+  }
+}
+
+#home-page #areaForBtnFive .container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#home-page #areaForBtnFive .container > h2 {
+  text-align: center;
+  color: #0e5098;
+  font-size: 62px;
+}
+
+@media (max-width: 767px) {
+  #home-page #areaForBtnFive .container > h2 {
+    font-size: 40px;
+  }
+}
+
+#home-page #areaForBtnFive .container > p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 100;
+  word-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  #home-page #areaForBtnFive .container > p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  #home-page #areaForBtnFive .container .row div:first-child {
+    margin-bottom: 20px;
+  }
+}
+
+#home-page #areaForBtnFive .container .row h4 {
+  color: #ffffff;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  #home-page #areaForBtnFive .container .row h4 {
+    font-size: 22px;
+  }
+}
+
+#home-page #areaForBtnFive .container .row img {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+#home-page #areaForBtnFive .container .row p {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+#home-page #areaForBtnFive .container .row a {
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 8px 30px;
+  text-decoration: none;
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  border: 1px solid #ffffff;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+#home-page #areaForBtnFive .container .row a:hover {
+  background-color: #085098;
+  color: #ffffff;
 }
 
 #home-page #downBtn {
