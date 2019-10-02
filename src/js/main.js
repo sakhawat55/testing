@@ -1,11 +1,14 @@
 // SUPPORT WOW.JS
-new WOW().init();
+wow = new WOW({
+  mobile: false
+});
+wow.init();
 
-// SIMPLEBAR FOR  
-new SimpleBar(document.getElementById('areaForBtnThree'));
-new SimpleBar(document.getElementById('areaForBtnFive'));
+// SIMPLEBAR FOR
+new SimpleBar(document.getElementById("areaForBtnThree"));
+new SimpleBar(document.getElementById("areaForBtnFive"));
 
-// GLOBAL VARIABLES 
+// GLOBAL VARIABLES
 var navbar = document.getElementById("navbar");
 var menuBtn = document.getElementById("menu-btn");
 var crossBtn = document.getElementById("cross");
@@ -140,16 +143,13 @@ var scrollWithDownBtn = function() {
       } else if (btnId == "BtnThree") {
         secButtons[2].click();
         return;
-      }
-      else if (btnId == "BtnFour") {
+      } else if (btnId == "BtnFour") {
         secButtons[3].click();
         return;
-      }
-      else if (btnId == "BtnFive") {
+      } else if (btnId == "BtnFive") {
         secButtons[4].click();
         return;
-      }
-      else if (btnId == "BtnSix") {
+      } else if (btnId == "BtnSix") {
         secButtons[5].click();
         return;
       }
@@ -175,13 +175,14 @@ var scrollWithKeyboardKey = function(event) {
           } else if (btnId == "BtnTwo") {
             secButtons[1].click();
             return;
-          }
-          else if (btnId == "BtnThree") {
+          } else if (btnId == "BtnThree") {
             secButtons[2].click();
             return;
-          }
-          else if (btnId == "BtnFour") {
+          } else if (btnId == "BtnFour") {
             secButtons[3].click();
+            return;
+          } else if (btnId == "BtnFive") {
+            secButtons[4].click();
             return;
           }
         }
@@ -189,7 +190,6 @@ var scrollWithKeyboardKey = function(event) {
     }
   }
 };
-
 
 // Removing the down button when the page is scrolled to the bottom
 var btnOut = function() {
@@ -210,61 +210,67 @@ var btnOut = function() {
 
 // CONTROLLING BACKGROUND VIDEO
 
-var controllingBGVideo = function(){
+var controllingBGVideo = function() {
   var areaT = areas[3].getBoundingClientRect().top;
   var windowT = window.innerHeight;
   var areaY = Math.round((areaT * 100) / windowT);
   if (areaY > -50 && areaY < 50) {
-    carBGVideo.play()
-  }else{
-    carBGVideo.pause()
+    carBGVideo.play();
+  } else {
+    carBGVideo.pause();
   }
 
-  if(cVideoVol.classList.contains('fa-volume-off')){
-    cVideoVol.classList.remove('fa-volume-off');
-    cVideoVol.classList.add('fa-volume-up');
-  }
-  else{
-    cVideoVol.classList.remove('fa-volume-up');
-    cVideoVol.classList.add('fa-volume-off');
+  if (cVideoVol.classList.contains("fa-volume-off")) {
+    cVideoVol.classList.remove("fa-volume-off");
+    cVideoVol.classList.add("fa-volume-up");
+  } else {
+    cVideoVol.classList.remove("fa-volume-up");
+    cVideoVol.classList.add("fa-volume-off");
   }
 
-  if(carBGVideo.muted){
+  if (carBGVideo.muted) {
     carBGVideo.muted = false;
-  }
-  else{
+  } else {
     carBGVideo.muted = true;
   }
-}
+};
 
-var controllingBGVideo2 = function(){
+var controllingBGVideo2 = function() {
   var areaT = areas[3].getBoundingClientRect().top;
   var windowT = window.innerHeight;
   var areaY = Math.round((areaT * 100) / windowT);
   if (areaY > -50 && areaY < 50) {
-    carBGVideo.play()
-  }else{
-    carBGVideo.pause()
+    carBGVideo.play();
+  } else {
+    carBGVideo.pause();
   }
-}
+};
+
+// Refine layout on resize
+
+var refineL = function() {
+  for (i = 0; i < areas.length; i++) {
+    var areaT = areas[i].getBoundingClientRect().top;
+    var windowT = window.innerHeight;
+    var areaY = Math.round((areaT * 100) / windowT);
+    if (areaY > -50 && areaY < 50) {
+      var btnId = areas[i].id.replace("areaFor", "");
+      document.getElementById(btnId).click()
+    }
+  }
+};
 
 // Modifying styles for small devices
 
 var smallDevices = function() {
   if (window.innerWidth < 768) {
-    secBtnWrapper.style.display = 'none';
-    areas[1].style.height = 'auto';
-    areas[2].style.height = 'auto';
-    areas[4].style.height = 'auto';
-    navbar.style.backgroundColor = '#004990';
-    document.getElementsByTagName('html')[0].style.overflow = 'auto';
+    secBtnWrapper.style.display = "none";
+    navbar.style.backgroundColor = "#004990";
+    document.getElementsByTagName("html")[0].style.overflow = "auto";
   } else {
-    secBtnWrapper.style.display = 'flex';
-    areas[1].style.height = '100%';
-    areas[2].style.height = '100%';
-    areas[4].style.height = '100%';
-    navbar.style.backgroundColor = 'transparent';
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    secBtnWrapper.style.display = "flex";
+    navbar.style.backgroundColor = "transparent";
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
   }
 };
 
@@ -280,8 +286,8 @@ window.addEventListener("scroll", btnOut);
 
 window.addEventListener("resize", wheelSlider);
 window.addEventListener("resize", btnOut);
+window.addEventListener("resize", refineL);
 window.addEventListener("resize", smallDevices);
-
 
 for (i = 0; i < secButtons.length; i++) {
   secButtons[i].addEventListener("click", smoothScroll);
@@ -294,13 +300,10 @@ crossBtn.addEventListener("click", function() {
   document.getElementById("mobile-menu").style.cssText =
     "opacity:0;visibility:hidden";
 });
-cVideoVol.addEventListener('click', controllingBGVideo)
+cVideoVol.addEventListener("click", controllingBGVideo);
 downBtn.addEventListener("click", scrollWithDownBtn);
 
 document.addEventListener("keydown", scrollWithKeyboardKey);
-
-
-
 
 var testF = function(event) {
   var delta;
@@ -318,12 +321,11 @@ var testF = function(event) {
   }
 };
 
-var testFF = function(){
+var testFF = function() {
   var upDown = testF(event);
-  if(upDown == "Down"){
+  if (upDown == "Down") {
     downBtn.click();
   }
-}
+};
 
-document.addEventListener("wheel",testFF);
-
+document.addEventListener("wheel", testFF);

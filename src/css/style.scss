@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:400,700&display=swap');
 
 @import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap");
 
@@ -202,13 +202,11 @@ p {
   // SECTION BUTTON END
 
   // AREA START
-  .area {
-    width: 100%;
-    height: 100%;
-  }
+  
   // FIRST AREA
   #areaForBtnOne {
     background: url(../img/background-1.jpg) no-repeat center/cover;
+    height: 100%;
     @include max-small {
       background: url(../img/background-1-s.jpg) no-repeat center/cover;
     }
@@ -258,6 +256,7 @@ p {
   #areaForBtnTwo {
     background-image: linear-gradient(#155ca3, #000000);
     @include min-medium {
+      height: 100%;
       padding-top: 80px;
     }
     .container {
@@ -353,6 +352,7 @@ p {
     background: url(../img/background-2.jpg) no-repeat center/cover;
     position: relative;
     @include min-medium {
+      height: 100%;
       padding-top: 80px;
     }
     .container {
@@ -412,6 +412,7 @@ p {
   }
 
   #areaForBtnFour {
+    height: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -450,6 +451,7 @@ p {
     background-image: linear-gradient(#000000, #155ca3);
     @include min-medium{
       padding-top: 80px;
+      height: 100%;
     }
     .container{
       padding-top: 40px;
@@ -511,6 +513,54 @@ p {
         a:hover{
           background-color: #085098;
           color: #ffffff;
+        }
+      }
+    }
+  }
+
+  #areaForBtnSix{
+    @include min-medium{
+      background: url(../img/background-bottom.jpg) no-repeat center/cover;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      .first{
+        display: flex;
+        justify-content: flex-start;
+      }
+      .second{
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    >.inner{
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      background-color: #085098;
+      .first{
+        color: #ffffff;
+        .bold{
+          font-weight: 700;
+        }
+      }
+      .second{
+        a{
+          color: #5b98d1;
+          text-decoration: none;
+          margin: 0 8px;
+          i{
+            font-size: 30px;
+          }
+        }
+        a:hover{
+          color: #ffffff;
+        }
+        @include max-small{
+          margin-top: 20px;
+          a:first-child{
+            margin-left: 0;
+          }
         }
       }
     }
@@ -598,3 +648,12 @@ p {
   }
 }
 // HOMEPAGE END
+
+
+
+#test-output{
+  position: fixed;
+  left: 0;
+  top: 50%;
+  z-index: 10000;
+}
