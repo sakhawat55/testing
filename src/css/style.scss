@@ -47,6 +47,12 @@ body {
   height: 100%;
 }
 
+html{
+  @include min-medium{
+    overflow: hidden;
+  }
+}
+
 body {
   font-family: 'Big Shoulders Text', cursive;
 }
@@ -69,11 +75,12 @@ p {
     left: 0;
     right: 0;
     top: 0;
-    background-color: #676792f1;
+    background-color: transparent;
     box-shadow: 0 1px 8px 0 #676792f1;
     padding: 10px 0 8px;
-    z-index: 1000;
+    z-index: 4;
     @include max-small {
+      background-color: #004990;
       padding: 0;
     }
     .container {
@@ -177,6 +184,9 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include max-small{
+      display: none;
+    }
     div {
       width: 25px;
       height: 25px;
@@ -201,7 +211,6 @@ p {
   }
   // SECTION BUTTON END
 
-  // AREA START
   
   // FIRST AREA
   #areaForBtnOne {
@@ -252,6 +261,7 @@ p {
       }
     }
   }
+
   // SECOND AREA
   #areaForBtnTwo {
     background-image: linear-gradient(#155ca3, #000000);
@@ -346,9 +356,9 @@ p {
       }
     }
   }
+
   // THIRD AREA
   #areaForBtnThree {
-    background-color: #2f4294;
     background: url(../img/background-2.jpg) no-repeat center/cover;
     position: relative;
     @include min-medium {
@@ -382,8 +392,6 @@ p {
       img {
         width: 100%;
         max-width: 445px;
-        height: 100%;
-        max-height: 295px;
         @include max-medium {
           margin-bottom: 10px;
         }
@@ -411,6 +419,7 @@ p {
     right: 0;
   }
 
+  // FOURTH AREA
   #areaForBtnFour {
     height: 100%;
     position: relative;
@@ -447,6 +456,7 @@ p {
     }
   }
 
+  // FIFTH AREA
   #areaForBtnFive{
     background-image: linear-gradient(#000000, #155ca3);
     @include min-medium{
@@ -468,7 +478,6 @@ p {
         text-align: center;
         color: #ffffff;
         font-size: 25px;
-        font-weight: 100;
         word-spacing: -2px;
         margin-bottom: 10px;
         @include max-small {
@@ -518,6 +527,7 @@ p {
     }
   }
 
+  // SIXTH AREA
   #areaForBtnSix{
     @include min-medium{
       background: url(../img/background-bottom.jpg) no-repeat center/cover;
@@ -606,7 +616,7 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 2000;
+    z-index: 5;
     transition-duration: 1s;
     #cross {
       display: block;
@@ -648,12 +658,3 @@ p {
   }
 }
 // HOMEPAGE END
-
-
-
-#test-output{
-  position: fixed;
-  left: 0;
-  top: 50%;
-  z-index: 10000;
-}

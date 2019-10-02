@@ -4,7 +4,7 @@ wow = new WOW({
 });
 wow.init();
 
-// SIMPLEBAR FOR
+// SIMPLEBAR
 new SimpleBar(document.getElementById("areaForBtnThree"));
 new SimpleBar(document.getElementById("areaForBtnFive"));
 
@@ -69,8 +69,7 @@ function smoothScroll() {
   }
 }
 
-// Wheel Slider in large devices and less
-
+// Wheel Slider in small devices
 var wheelSlider = function() {
   var box = document.querySelectorAll(".box-wrapper .item");
 
@@ -137,22 +136,8 @@ var scrollWithDownBtn = function() {
     var areaT = areas[i].getBoundingClientRect().top;
     if (areaT > 0) {
       var btnId = areas[i].id.replace("areaFor", "");
-      if (btnId == "BtnTwo") {
-        secButtons[1].click();
-        return;
-      } else if (btnId == "BtnThree") {
-        secButtons[2].click();
-        return;
-      } else if (btnId == "BtnFour") {
-        secButtons[3].click();
-        return;
-      } else if (btnId == "BtnFive") {
-        secButtons[4].click();
-        return;
-      } else if (btnId == "BtnSix") {
-        secButtons[5].click();
-        return;
-      }
+      document.getElementById(btnId).click();
+      return;
     }
   }
 };
@@ -169,22 +154,36 @@ var scrollWithKeyboardKey = function(event) {
         var areaB = areas[i].getBoundingClientRect().top;
         if (areaB < 0) {
           var btnId = areas[i].id.replace("areaFor", "");
-          if (btnId == "BtnOne") {
-            secButtons[0].click();
-            return;
-          } else if (btnId == "BtnTwo") {
-            secButtons[1].click();
-            return;
-          } else if (btnId == "BtnThree") {
-            secButtons[2].click();
-            return;
-          } else if (btnId == "BtnFour") {
-            secButtons[3].click();
-            return;
-          } else if (btnId == "BtnFive") {
-            secButtons[4].click();
-            return;
-          }
+          document.getElementById(btnId).click();
+          return;
+        }
+      }
+    }
+  }
+};
+
+// Scrolling page by mousewheel
+var scrollWithMouseWheel = function(event) {
+  var delta;
+
+  if (event.wheelDelta) {
+    delta = event.wheelDelta;
+  } else {
+    delta = -1 * event.deltaY;
+  }
+
+  var downBtnDisplay = downBtn.style.display;
+
+  if (downBtnDisplay != "none") {
+    if (delta < 0) {
+      downBtn.click();
+    } else if (delta > 0) {
+      for (i = areas.length - 1; i >= 0; i--) {
+        var areaB = areas[i].getBoundingClientRect().top;
+        if (areaB < 0) {
+          var btnId = areas[i].id.replace("areaFor", "");
+          document.getElementById(btnId).click();
+          return;
         }
       }
     }
@@ -209,17 +208,7 @@ var btnOut = function() {
 };
 
 // CONTROLLING BACKGROUND VIDEO
-
 var controllingBGVideo = function() {
-  var areaT = areas[3].getBoundingClientRect().top;
-  var windowT = window.innerHeight;
-  var areaY = Math.round((areaT * 100) / windowT);
-  if (areaY > -50 && areaY < 50) {
-    carBGVideo.play();
-  } else {
-    carBGVideo.pause();
-  }
-
   if (cVideoVol.classList.contains("fa-volume-off")) {
     cVideoVol.classList.remove("fa-volume-off");
     cVideoVol.classList.add("fa-volume-up");
@@ -247,7 +236,6 @@ var controllingBGVideo2 = function() {
 };
 
 // Refine layout on resize
-
 var refineL = function() {
   for (i = 0; i < areas.length; i++) {
     var areaT = areas[i].getBoundingClientRect().top;
@@ -255,22 +243,8 @@ var refineL = function() {
     var areaY = Math.round((areaT * 100) / windowT);
     if (areaY > -50 && areaY < 50) {
       var btnId = areas[i].id.replace("areaFor", "");
-      document.getElementById(btnId).click()
+      document.getElementById(btnId).click();
     }
-  }
-};
-
-// Modifying styles for small devices
-
-var smallDevices = function() {
-  if (window.innerWidth < 768) {
-    secBtnWrapper.style.display = "none";
-    navbar.style.backgroundColor = "#004990";
-    document.getElementsByTagName("html")[0].style.overflow = "auto";
-  } else {
-    secBtnWrapper.style.display = "flex";
-    navbar.style.backgroundColor = "transparent";
-    document.getElementsByTagName("html")[0].style.overflow = "hidden";
   }
 };
 
@@ -278,7 +252,6 @@ var smallDevices = function() {
 window.addEventListener("load", btnFill);
 window.addEventListener("load", wheelSlider);
 window.addEventListener("load", btnOut);
-window.addEventListener("load", smallDevices);
 
 window.addEventListener("scroll", btnFill);
 window.addEventListener("scroll", controllingBGVideo2);
@@ -287,7 +260,6 @@ window.addEventListener("scroll", btnOut);
 window.addEventListener("resize", wheelSlider);
 window.addEventListener("resize", btnOut);
 window.addEventListener("resize", refineL);
-window.addEventListener("resize", smallDevices);
 
 for (i = 0; i < secButtons.length; i++) {
   secButtons[i].addEventListener("click", smoothScroll);
@@ -304,28 +276,32 @@ cVideoVol.addEventListener("click", controllingBGVideo);
 downBtn.addEventListener("click", scrollWithDownBtn);
 
 document.addEventListener("keydown", scrollWithKeyboardKey);
+document.addEventListener("wheel", scrollWithMouseWheel);
 
-var testF = function(event) {
-  var delta;
 
-  if (event.wheelDelta) {
-    delta = event.wheelDelta;
-  } else {
-    delta = -1 * event.deltaY;
-  }
 
-  if (delta < 0) {
-    return "Down";
-  } else if (delta > 0) {
-    return "Up";
-  }
-};
+// var testF = function(event) {
+//   var delta;
 
-var testFF = function() {
-  var upDown = testF(event);
-  if (upDown == "Down") {
-    downBtn.click();
-  }
-};
+//   if (event.wheelDelta) {
+//     delta = event.wheelDelta;
+//   } else {
+//     delta = -1 * event.deltaY;
+//   }
 
-document.addEventListener("wheel", testFF);
+//   if (delta < 0) {
+//     return "Down";
+//   } else if (delta > 0) {
+//     return "Up";
+//   }
+// };
+
+// var testFF = function() {
+//   var upDown = testF(event);
+//   if (upDown == "Down") {
+//     downBtn.click();
+//   }
+// };
+
+// document.addEventListener("wheel", testFF);
+
