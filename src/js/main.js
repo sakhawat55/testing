@@ -277,31 +277,3 @@ downBtn.addEventListener("click", scrollWithDownBtn);
 
 document.addEventListener("keydown", scrollWithKeyboardKey);
 document.addEventListener("wheel", scrollWithMouseWheel);
-
-
-
-// var testF = function(event) {
-//   var delta;
-
-//   if (event.wheelDelta) {
-//     delta = event.wheelDelta;
-//   } else {
-//     delta = -1 * event.deltaY;
-//   }
-
-//   if (delta < 0) {
-//     return "Down";
-//   } else if (delta > 0) {
-//     return "Up";
-//   }
-// };
-
-// var testFF = function() {
-//   var upDown = testF(event);
-//   if (upDown == "Down") {
-//     downBtn.click();
-//   }
-// };
-
-// document.addEventListener("wheel", testFF);
-
