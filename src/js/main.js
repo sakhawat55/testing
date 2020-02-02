@@ -1,4 +1,6 @@
-// SUPPORT WOW.JS
+$(document).ready(function(){
+
+  // SUPPORT WOW.JS
 wow = new WOW({
   mobile: false
 });
@@ -277,3 +279,6 @@ downBtn.addEventListener("click", scrollWithDownBtn);
 
 document.addEventListener("keydown", scrollWithKeyboardKey);
 document.addEventListener("wheel", scrollWithMouseWheel);
+
+
+});
